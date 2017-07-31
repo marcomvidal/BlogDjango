@@ -1,0 +1,78 @@
+{% extends 'postagens/base.html' %}
+{% load staticfiles %}
+
+{% block conteudo %}
+<!-- Page Header -->
+<!-- Set your background image for this header on the line below. -->
+<header class="intro-header" style="background-image: url('{% static 'img/logotipo.png' %}')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="site-heading">
+                    <h1>#blogDjango</h1>
+                    <hr class="small">
+                    <span class="subheading">Dicas de desenvolvimento ágil de aplicações web</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+            {% comment %}
+                <div class="post-preview form-group">
+                    <h2 class="post-title">
+                        Criar nova postagem
+                    </h2>
+                    <form method="POST">{% csrf_token %}
+                        <label class="post-subtitle" for="id_titulo">Título</label>
+                        {{ formulario.titulo }}
+                        <label class="post-subtitle" for="id_descricao">Descrição</label>
+                        {{ formulario.descricao }}
+                        <label class="post-subtitle" for="id_conteudo">Conteúdo</label>
+                        {{ formulario.conteudo }}
+                        <hr>
+                        <button class="btn btn-primary" type="submit">Salvar</button>
+                    </form>
+                </div>
+            {% endcomment %}
+
+
+            <div class="post-preview">
+                <h2 class="post-title">
+                    Criar nova postagem
+                </h2>
+                <form method="POST">
+                    {% csrf_token %}
+
+                    <div class="form-group {% if formulario.titulo.errors %}has-error{% endif %}">
+                        <label class="control-label">Título</label>
+                        <input class="form-control" type="text" name="titulo" placeholder="Informe o título" value="{{ formulario.titulo.value|default:"" }}">
+                        <p class="help-block">{{ formulario.titulo.errors|striptags }}</p>
+                    </div>
+
+                    <div class="form-group {% if formulario.descricao.errors %}has-error{% endif %}">
+                        <label class="control-label">Descrição</label>
+                        <input class="form-control" type="text" name="descricao" placeholder="Descrição da postagem" value="{{ formulario.descricao.value|default:"" }}">
+                        <p class="help-block">{{ formulario.descricao.errors|striptags }}</p>
+                    </div>
+
+                    <div class="form-group {% if formulario.conteudo.errors %}has-error{% endif %}">
+                        <label class="control-label">Conteúdo</label>
+                        <textarea class="form-control" name="conteudo" placeholder="Texto da postagem">{{ formulario.conteudo.value|default:"" }}</textarea>
+                        <p class="help-block">{{ formulario.conteudo.errors|striptags }}</p>
+                    </div>
+                    <hr>
+                    <button class="btn btn-primary" type="submit">Salvar</button>
+                </form>
+            </div>
+
+            <hr>
+        </div>
+    </div>
+</div>
+{% endblock conteudo %}

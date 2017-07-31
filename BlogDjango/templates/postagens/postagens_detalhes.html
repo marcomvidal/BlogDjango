@@ -1,0 +1,54 @@
+{% extends 'postagens/base.html' %}
+{% load staticfiles %}
+
+{% block conteudo %}
+<!-- Page Header -->
+<!-- Set your background image for this header on the line below. -->
+<header class="intro-header" style="background-image: url({% static 'img/logotipo.png' %})">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>{{ postagem.titulo }}
+                        {% if user.is_authenticated %}
+                        <a class="btn btn-default" href="{% url 'postagens_editar' pk=postagem.pk %}" title="Editar postagem">
+                            <span class="glyphicon glyphicon-pencil btn-icones"></span>
+                        </a>
+                        <a class="btn btn-default" href="{% url 'postagens_excluir' pk=postagem.pk %}" title="Excluir postagem">
+                            <span class="glyphicon glyphicon-remove btn-icones"></span>
+                        </a>
+                        {% endif %}
+                    </h1>
+
+                    <h2 class="subheading">{{ postagem.descricao | linebreaksbr }}</h2>
+                    <span class="meta">Publicado por <a href="#">{{ postagem.autor }}</a> em {{ postagem.data_publicacao|date:'d/M/Y' }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                {{ postagem.conteudo | linebreaksbr }}
+
+                <hr>
+                <h1>Quer receber esta postagem por e-mail?</h1>
+                <form method="post" action="."> {% csrf_token %}
+                    <input class="form-control" name="email" >
+                    <button>Enviar</button>
+                </form>
+
+                {% if mail_result %}
+                    <h2>{{ mail_result }}</h2>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+
+</article>
+{% endblock conteudo %}
