@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
-from django.utils import timezone
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Postagem
 from .forms import PostagemForm
 
@@ -9,6 +9,17 @@ def postagens_listar(request):
     '''Listagem de todas as postagens'''
     postagens = Postagem.objects.filter(publicado=True)\
                                 .order_by('-data_publicacao')
+
+    # Exibição paginada, a cada três postagens
+    paginator = Paginator(postagens, 3)
+    page = request.GET.get('page')
+
+    try:
+        postagens = paginator.page(page)
+    except PageNotAnInteger:
+        postagens = paginator.page(1)
+    except EmptyPage:
+        postagens = paginator.page(paginator.num_pages)
 
     contexto = {
         'postagens': postagens

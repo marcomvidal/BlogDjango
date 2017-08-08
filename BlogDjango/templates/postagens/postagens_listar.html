@@ -38,11 +38,20 @@
             {% endfor %}
 
             <!-- Pager -->
+
             <ul class="pager">
+                <li class="previous">
+                    {% if postagens.has_previous %}
+                        <a href="?page={{ postagens.previous_page_number }}">&larr; Anteriores</a>
+                    {% endif %}
+                </li>
                 <li class="next">
-                    <a href="#">Mais &rarr;</a>
+                    {% if postagens.has_next %}
+                        <a href="?page={{ postagens.next_page_number }}">Próximas &rarr;</a>
+                    {% endif %}
                 </li>
             </ul>
+
         </div>
     </div>
 </div>
