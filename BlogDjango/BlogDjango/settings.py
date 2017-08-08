@@ -119,8 +119,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # Disparo de postagens por e-mail.
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = '587'
-EMAIL_HOST_USER = 'djangotestvidal@gmail.com'
-EMAIL_HOST_PASSWORD = 'temp@123'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
 EMAIL_USE_TLS = True
 
 

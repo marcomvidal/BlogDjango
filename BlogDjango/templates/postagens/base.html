@@ -11,22 +11,21 @@
 
     <title>Blog Django</title>
 
-    <!-- Bootstrap Core CSS -->
+    <!-- CSS Principal do Bootstrap -->
     <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 
-    <!-- Theme CSS -->
+    <!-- CSS do Tema -->
     <link href="{% static 'css/clean-blog.min.css' %}" rel="stylesheet">
 
-    <!-- Custom CSS -->
+    <!-- CSS de Personalização -->
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
-    <!-- Custom Fonts -->
+    <!-- Fontes Personalizadas -->
     <link href="{% static 'vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!-- Suporte a elementos e media queries para IE8 com HTML5 Shim and Respond.js -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -36,10 +35,10 @@
 
 <body>
 
-    <!-- Navigation -->
+    <!-- Navegação -->
     <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
         <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
+            <!-- Alterador de navegação para dispositivos móveis -->
             <div class="navbar-header page-scroll">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Mudar navegação</span>
@@ -48,7 +47,7 @@
                 <a class="navbar-brand" href="{% url 'postagens_listar' %}">#blogDjango</a>
             </div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
+            <!-- Links de navegação -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-left">
                     <li>
@@ -87,13 +86,13 @@
         <!-- /.container -->
     </nav>
 
-    <!-- Page Header & Main Content -->
+    <!-- Cabeçalho da Página e Conteúdo Principal -->
     {% block conteudo %}
     {% endblock %}
 
     <hr>
 
-    <!-- Footer -->
+    <!-- Rodapé -->
     <footer>
         <div class="container">
             <div class="row">
@@ -133,14 +132,10 @@
     <!-- jQuery -->
     <script type="text/javascript" href="{% static 'vendor/jquery/jquery.min.js' %}"></script>
 
-    <!-- Bootstrap Core JavaScript -->
+    <!-- JavaScript Principal do Bootstrap -->
     <script type="text/javascript" href="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
 
-    <!-- Contact Form JavaScript -->
-    <script type="text/javascript" href="{% static 'js/jqBootstrapValidation.js' %}"></script>
-    <script type="text/javascript" href="{% static 'js/contact_me.js' %}"></script>
-
-    <!-- Theme JavaScript -->
+    <!-- JavaScript do Tema -->
     <script type="text/javascript" href="{% static 'js/clean-blog.min.js' %}"></script>
 
 </body>

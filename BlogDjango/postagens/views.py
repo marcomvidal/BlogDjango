@@ -21,9 +21,7 @@ def postagens_listar(request):
     except EmptyPage:
         postagens = paginator.page(paginator.num_pages)
 
-    contexto = {
-        'postagens': postagens
-    }
+    contexto = {'postagens': postagens}
 
     return render(request, 'postagens/postagens_listar.html', contexto)
 
@@ -34,9 +32,7 @@ def postagens_rascunhos(request):
     postagens = Postagem.objects.filter(publicado=False) \
                                 .order_by('-data_criacao')
 
-    contexto = {
-        'postagens': postagens
-    }
+    contexto = {'postagens': postagens}
 
     return render(request, 'postagens/postagens_rascunhos.html', contexto)
 
@@ -54,9 +50,7 @@ def postagens_detalhes(request, pk):
     '''Listagem de uma postagem específica'''
     postagem = get_object_or_404(Postagem, pk=pk)
 
-    contexto = {
-        'postagem': postagem
-    }
+    contexto = {'postagem': postagem}
 
     if request.POST:
         if request.POST.get('email', None):
@@ -87,9 +81,7 @@ def postagens_criar(request):
 
             return redirect('postagens_detalhes', pk=postagem.pk)
 
-    contexto = {
-        'formulario': formulario
-    }
+    contexto = {'formulario': formulario}
 
     return render(request, 'postagens/postagens_editar.html', contexto)
 
@@ -116,9 +108,7 @@ def postagens_editar(request, pk):
     else:
         formulario = PostagemForm(instance=postagem)
 
-    contexto = {
-        'formulario': formulario
-    }
+    contexto = {'formulario': formulario}
 
     return render(request, 'postagens/postagens_editar.html', contexto)
 

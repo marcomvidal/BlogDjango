@@ -2,9 +2,8 @@
 {% load staticfiles %}
 
 {% block conteudo %}
-<!-- Page Header -->
-<!-- Set your background image for this header on the line below. -->
-<header class="intro-header" style="background-image: url('{% static 'img/logo-header.png' %}')">
+<!-- Cabeçalho da Página -->
+<header class="intro-header parallax">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -18,7 +17,7 @@
     </div>
 </header>
 
-<!-- Main Content -->
+<!-- Conteúdo Principal -->
 <div class="container">
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -36,12 +35,20 @@
             <hr>
             {% endfor %}
 
-            <!-- Pager -->
+            <!-- Paginador -->
             <ul class="pager">
+                <li class="previous">
+                    {% if postagens.has_previous %}
+                        <a href="?page={{ postagens.previous_page_number }}">&larr; Anteriores</a>
+                    {% endif %}
+                </li>
                 <li class="next">
-                    <a href="#">Mais &rarr;</a>
+                    {% if postagens.has_next %}
+                        <a href="?page={{ postagens.next_page_number }}">Próximas &rarr;</a>
+                    {% endif %}
                 </li>
             </ul>
+
         </div>
     </div>
 </div>
