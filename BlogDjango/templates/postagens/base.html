@@ -42,7 +42,7 @@
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
+                    <span class="sr-only">Mudar navegação</span>
                     Menu <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand" href="{% url 'postagens_listar' %}">#blogDjango</a>
@@ -57,6 +57,11 @@
                         </a>
                     </li>
                     {% if user.is_authenticated %}
+                    <li>
+                        <a href="{% url 'postagens_rascunhos' %}">
+                            <span class="glyphicon glyphicon-edit navbar-icones" title="Ver rascunhos de postagens"></span>
+                        </a>
+                    </li>
                     <li>
                         <a href="{% url 'postagens_criar' %}">
                             <span class="glyphicon glyphicon-plus navbar-icones" title="Criar nova postagem"></span>
@@ -119,17 +124,17 @@
     </footer>
 
     <!-- jQuery -->
-    <script src="vendor/jquery/jquery.min.js"></script>
+    <script type="text/javascript" href="{% static 'vendor/jquery/jquery.min.js' %}"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" href="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
 
     <!-- Contact Form JavaScript -->
-    <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact_me.js"></script>
+    <script type="text/javascript" href="{% static 'js/jqBootstrapValidation.js' %}"></script>
+    <script type="text/javascript" href="{% static 'js/contact_me.js' %}"></script>
 
     <!-- Theme JavaScript -->
-    <script src="js/clean-blog.min.js"></script>
+    <script type="text/javascript" href="{% static 'js/clean-blog.min.js' %}"></script>
 
 </body>
 

@@ -7,6 +7,8 @@ urlpatterns = [
     url(r'^postagens/criar/$', views.postagens_criar, name='postagens_criar'),
     url(r'^postagens/(?P<pk>[0-9]+)/editar/$', views.postagens_editar, name='postagens_editar'),
     url(r'^postagens/(?P<pk>[0-9]+)/excluir/$', views.postagens_excluir, name='postagens_excluir'),
+    url(r'^postagens/rascunhos/$', views.postagens_rascunhos, name='postagens_rascunhos'),
+    url(r'^postagens/(?P<pk>[0-9]+)/publicar/$', views.postagens_publicar, name='postagens_publicar'),
 ]
 
 

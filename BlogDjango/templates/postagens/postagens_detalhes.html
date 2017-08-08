@@ -4,12 +4,13 @@
 {% block conteudo %}
 <!-- Page Header -->
 <!-- Set your background image for this header on the line below. -->
-<header class="intro-header" style="background-image: url({% static 'img/logotipo.png' %})">
+<header class="intro-header" style="background-image: url({% static 'img/logo-header.png' %})">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>{{ postagem.titulo }}
+                    <h1>{{ postagem.titulo }}</h1>
+                    <div>
                         {% if user.is_authenticated %}
                         <a class="btn btn-default" href="{% url 'postagens_editar' pk=postagem.pk %}" title="Editar postagem">
                             <span class="glyphicon glyphicon-pencil btn-icones"></span>
@@ -18,10 +19,22 @@
                             <span class="glyphicon glyphicon-remove btn-icones"></span>
                         </a>
                         {% endif %}
-                    </h1>
+                        {% if not postagem.publicado %}
+                        <a class="btn btn-default" href="{% url 'postagens_publicar' pk=postagem.pk %}" title="Publicar postagem">
+                            <span class="glyphicon glyphicon-ok btn-icones"></span>
+                        </a>
+                        {% endif %}
+                    </div>
 
                     <h2 class="subheading">{{ postagem.descricao | linebreaksbr }}</h2>
-                    <span class="meta">Publicado por <a href="#">{{ postagem.autor }}</a> em {{ postagem.data_publicacao|date:'d/M/Y' }}</span>
+
+                    {% if postagem.publicado %}
+                    <span class="meta">Publicado por <a href="#">{{ postagem.autor.first_name }}</a> em {{ postagem.data_publicacao }}</span>
+                    {% else %}
+                    <span class="meta">Criado por <a href="#">{{ postagem.autor.first_name }}</a> em {{ postagem.data_criacao }} (não publicado)</span>
+
+
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -37,9 +50,11 @@
 
                 <hr>
                 <h1>Quer receber esta postagem por e-mail?</h1>
-                <form method="post" action="."> {% csrf_token %}
-                    <input class="form-control" name="email" >
-                    <button>Enviar</button>
+                <form class="input-group" method="post" action="."> {% csrf_token %}
+                    <input class="form-control input-com-botao" name="email" >
+                    <span class="input-group-btn">
+                        <button class=" btn btn-default">Enviar</button>
+                    </span>
                 </form>
 
                 {% if mail_result %}

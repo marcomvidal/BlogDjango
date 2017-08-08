@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from .models import Postagem
 from .forms import PostagemForm
@@ -6,13 +7,36 @@ from .forms import PostagemForm
 
 def postagens_listar(request):
     '''Listagem de todas as postagens'''
-    postagens = Postagem.objects.filter(data_publicacao__lte=timezone.now())\
+    postagens = Postagem.objects.filter(publicado=True)\
                                 .order_by('-data_publicacao')
+
     contexto = {
         'postagens': postagens
     }
 
     return render(request, 'postagens/postagens_listar.html', contexto)
+
+
+@login_required
+def postagens_rascunhos(request):
+    '''Listagem de todas as postagens que ainda não foram publicadas'''
+    postagens = Postagem.objects.filter(publicado=False) \
+                                .order_by('-data_criacao')
+
+    contexto = {
+        'postagens': postagens
+    }
+
+    return render(request, 'postagens/postagens_rascunhos.html', contexto)
+
+
+@login_required
+def postagens_publicar(request, pk):
+    '''Publicação de postagens rascunho'''
+    postagem = get_object_or_404(Postagem, pk=pk)
+    postagem.publicar()
+
+    return redirect('postagens_detalhes', pk=pk)
 
 
 def postagens_detalhes(request, pk):
@@ -36,17 +60,20 @@ def postagens_detalhes(request, pk):
     return render(request, 'postagens/postagens_detalhes.html', contexto)
 
 
+@login_required
 def postagens_criar(request):
     '''Criação de uma nova postagem'''
-
     formulario = PostagemForm(request.POST or None)
 
     if request.POST:
         if formulario.is_valid():
             postagem = formulario.save(commit=False)
             postagem.autor = request.user
-            postagem.data_publicacao = timezone.now()
             postagem.save()
+
+            if postagem.publicado:
+                postagem.publicar()
+
             return redirect('postagens_detalhes', pk=postagem.pk)
 
     contexto = {
@@ -56,23 +83,27 @@ def postagens_criar(request):
     return render(request, 'postagens/postagens_editar.html', contexto)
 
 
+@login_required
 def postagens_editar(request, pk):
     '''Edição de uma postagem existente'''
     postagem = get_object_or_404(Postagem, pk=pk)
 
-    formulario = PostagemForm(request.POST or None, instance=postagem)
-
-    #if request.method == "POST":
-    if request.POST:
-        #formulario = PostagemForm(request.POST)
+    if request.method == "POST":
+        formulario = PostagemForm(request.POST, instance=postagem)
         if formulario.is_valid():
             postagem = formulario.save(commit=False)
             postagem.autor = request.user
-            postagem.data_publicacao = timezone.now()
             postagem.save()
+
+            if postagem.publicado:
+                postagem.publicar()
+            else:
+                postagem.data_publicacao = ""
+                postagem.publicado = False
+
             return redirect('postagens_detalhes', pk=postagem.pk)
-    #else:
-    #    formulario = PostagemForm(instance=postagem)
+    else:
+        formulario = PostagemForm(instance=postagem)
 
     contexto = {
         'formulario': formulario
@@ -81,6 +112,7 @@ def postagens_editar(request, pk):
     return render(request, 'postagens/postagens_editar.html', contexto)
 
 
+@login_required
 def postagens_excluir(request, pk):
     '''Exclusão de uma postagem existente'''
     postagem = Postagem.objects.filter(pk=pk)

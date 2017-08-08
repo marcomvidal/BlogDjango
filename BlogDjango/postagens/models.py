@@ -12,10 +12,12 @@ class Postagem(models.Model):
     titulo = models.CharField(max_length=200)
     descricao = models.TextField()
     conteudo = models.TextField()
+    publicado = models.BooleanField(default=False)
     data_criacao = models.DateTimeField(default=timezone.now)
     data_publicacao = models.DateTimeField(blank=True, null=True)
 
     def publicar(self):
+        self.publicado = True
         self.data_publicacao = timezone.now()
         self.save()
 

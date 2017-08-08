@@ -1,12 +1,8 @@
 To Do List:
-- Formulário manual
 - Sistema de login no próprio site
-- Banco de dados MySQL
 - Paginação de postagens
-- Banner principal
 - Página de erro
 - Publicação
-- Tradução de mensagens
 - Conflitos de JavaScript
 
 
