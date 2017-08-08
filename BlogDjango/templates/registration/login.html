@@ -1,0 +1,53 @@
+{% extends 'postagens/base.html' %}
+{% load staticfiles %}
+{% block conteudo %}
+<!-- Page Header -->
+<!-- Set your background image for this header on the line below. -->
+<header class="intro-header" style="background-image: url('{% static 'img/logo-header.png' %}')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="site-heading">
+                    <h1>#blogDjango</h1>
+                    <hr class="small">
+                    <span class="subheading">Dicas de desenvolvimento ágil de aplicações web</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+            <div class="post-preview">
+                <h2 class="post-title">Realizar login</h2>
+                <form method="POST">
+                    {% csrf_token %}
+
+                    <div>
+                        <label class="control-label">Usuário:</label>
+                        <input class="form-control" type="text" name="username" placeholder="Nome de usuário">
+                        <div class="help-block">{{ form.username.errors|striptags }}</div>
+                    </div>
+
+                    <div>
+                        <label class="control-label">Senha:</label>
+                        <input class="form-control" type="password" name="password" placeholder="Senha">
+                        <div class="help-block">{{ form.password.errors|striptags }}</div>
+                    </div>
+
+
+                    <hr>
+
+                    <input type="submit" value="Entrar" class="btn btn-default" />
+                    <input type="hidden" name="next" value="{{ next }}" />
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock conteudo %}

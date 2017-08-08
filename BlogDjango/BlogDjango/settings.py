@@ -122,3 +122,8 @@ EMAIL_PORT = '587'
 EMAIL_HOST_USER = 'djangotestvidal@gmail.com'
 EMAIL_HOST_PASSWORD = 'temp@123'
 EMAIL_USE_TLS = True
+
+
+# Login interativo
+# URL a qual o usuário será redirecionado após o login:
+LOGIN_REDIRECT_URL = '/'

@@ -30,19 +30,19 @@
 
                     <div class="form-group {% if formulario.titulo.errors %}has-error{% endif %}">
                         <label class="control-label">Título</label>
-                        <input class="form-control" type="text" name="titulo" placeholder="Informe o título" value="{{ formulario.titulo.value|default:'' }}">
+                        <input class="form-control" type="text" name="titulo" placeholder="Sobre o quê se trata esta postagem?" value="{{ formulario.titulo.value|default:'' }}">
                         <p class="help-block">{{ formulario.titulo.errors|striptags }}</p>
                     </div>
 
                     <div class="form-group {% if formulario.descricao.errors %}has-error{% endif %}">
                         <label class="control-label">Descrição</label>
-                        <input class="form-control" type="text" name="descricao" placeholder="Descrição da postagem" value="{{ formulario.descricao.value|default:'' }}">
+                        <input class="form-control" type="text" name="descricao" placeholder="Descreva brevemente sobre do que se trata esta postagem" value="{{ formulario.descricao.value|default:'' }}">
                         <p class="help-block">{{ formulario.descricao.errors|striptags }}</p>
                     </div>
 
                     <div class="form-group {% if formulario.conteudo.errors %}has-error{% endif %}">
                         <label class="control-label">Conteúdo</label>
-                        <textarea class="form-control" name="conteudo" placeholder="Texto da postagem" rows="10">{{ formulario.conteudo.value|default:'' }}</textarea>
+                        <textarea class="form-control" name="conteudo" placeholder="Digite aqui o texto que aparecerá no corpo da sua postagem" rows="10">{{ formulario.conteudo.value|default:'' }}</textarea>
                         <p class="help-block">{{ formulario.conteudo.errors|striptags }}</p>
                     </div>
 

@@ -29,9 +29,9 @@
                     <h2 class="subheading">{{ postagem.descricao | linebreaksbr }}</h2>
 
                     {% if postagem.publicado %}
-                    <span class="meta">Publicado por <a href="#">{{ postagem.autor.first_name }}</a> em {{ postagem.data_publicacao }}</span>
+                    <span class="meta">Publicado por <a href="#">{{ postagem.autor.first_name }} {{ postagem.autor.last_name }}</a> em {{ postagem.data_publicacao }}</span>
                     {% else %}
-                    <span class="meta">Criado por <a href="#">{{ postagem.autor.first_name }}</a> em {{ postagem.data_criacao }} (não publicado)</span>
+                    <span class="meta">Criado por <a href="#">{{ postagem.autor.first_name }} {{ postagem.autor.last_name }}</a> em {{ postagem.data_criacao }} (não publicado)</span>
 
 
                     {% endif %}
