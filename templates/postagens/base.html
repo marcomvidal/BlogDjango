@@ -11,26 +11,12 @@
 
     <title>Blog Django</title>
 
-    <!-- CSS Principal do Bootstrap -->
-    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-
-    <!-- CSS do Tema -->
-    <link href="{% static 'css/clean-blog.min.css' %}" rel="stylesheet">
-
     <!-- CSS de Personalização -->
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'dist/css/app.css' %}" rel="stylesheet">
 
     <!-- Fontes Personalizadas -->
-    <link href="{% static 'vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-
-    <!-- Suporte a elementos e media queries para IE8 com HTML5 Shim and Respond.js -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
 </head>
 
 <body>
@@ -99,22 +85,6 @@
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <ul class="list-inline text-center">
                         <li>
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li>
                             <a href="http://github.com/marcomvidal/">
                                 <span class="fa-stack fa-lg">
                                     <i class="fa fa-circle fa-stack-2x"></i>
@@ -129,15 +99,8 @@
         </div>
     </footer>
 
-    <!-- jQuery -->
-    <script type="text/javascript" href="{% static 'vendor/jquery/jquery.min.js' %}"></script>
-
-    <!-- JavaScript Principal do Bootstrap -->
-    <script type="text/javascript" href="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
-
-    <!-- JavaScript do Tema -->
-    <script type="text/javascript" href="{% static 'js/clean-blog.min.js' %}"></script>
-
+    <!-- JavaScript -->
+    <script type="text/javascript" href="{% static 'dist/js/app.js' %}"></script>
 </body>
 
 </html>

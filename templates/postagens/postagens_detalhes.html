@@ -47,15 +47,6 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 {{ postagem.conteudo | linebreaksbr }}
 
-                <hr>
-                <h1>Quer receber esta postagem por e-mail?</h1>
-                <form class="input-group" method="post" action="."> {% csrf_token %}
-                    <input class="form-control input-com-botao" name="email" >
-                    <span class="input-group-btn">
-                        <button class=" btn btn-default">Enviar</button>
-                    </span>
-                </form>
-
                 {% if mail_result %}
                     <h2>{{ mail_result }}</h2>
                 {% endif %}

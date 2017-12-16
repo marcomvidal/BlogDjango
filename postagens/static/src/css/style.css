@@ -1,0 +1,36 @@
+@charset utf-8;
+
+.navbar-icones {
+    font-size: 2em;
+}
+
+.btn-icones {
+    font-size: 1.5em;
+}
+
+.input-com-botao {
+    height: 52px;
+}
+
+.parallax {
+    background-image: url("../img/logo-header.png");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.post-preview>a:focus,
+.post-preview>a:hover,
+.post-preview>.post-meta>a:focus,
+.post-preview>.post-meta>a:hover {
+    color: #1d6a4f;
+}
+
+.pager li>a:focus,
+.pager li>a:hover,
+.btn-default:focus,
+.btn-default:hover {
+    background-color: #1d6a4f;
+    border-color: #1d6a4f;
+}

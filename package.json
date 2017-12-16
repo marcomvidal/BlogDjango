@@ -1,0 +1,27 @@
+{
+  "name": "blogdjango",
+  "version": "1.0.0",
+  "description": "A simple blog app to post articles about Python and related content",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcomvidal/BlogDjango.git"
+  },
+  "author": "Marco M. Vidal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marcomvidal/BlogDjango/issues"
+  },
+  "homepage": "https://github.com/marcomvidal/BlogDjango#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^4.0.0",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-strip-css-comments": "^1.2.0",
+    "gulp-uglify": "^3.0.0"
+  }
+}
