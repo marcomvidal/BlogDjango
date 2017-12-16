@@ -4,4 +4,6 @@ todo.txt
 .pydevproject
 /.vscode
 /postagens/__pycache__
+/BlogDjango/__pycache__
+/BlogDjango/settings_secret.py
 /node_modules
