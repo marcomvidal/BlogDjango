@@ -9,6 +9,6 @@ Sistema web de postagem de notícias que realiza operações integrais de CRUD c
 - Bootstrap 3
 
 ## Screenshots
-* [Listagem de posts](https://raw.githubusercontent.com/marcomvidal/CatalogoDeProdutos/master/screenshot_listagem.png)
-* [Detalhes do post](https://raw.githubusercontent.com/marcomvidal/CatalogoDeProdutos/master/screenshot_post.png)
-* [Editor de posts](https://raw.githubusercontent.com/marcomvidal/CatalogoDeProdutos/master/screenshot_editor.png)
+* [Listagem de posts](https://raw.githubusercontent.com/marcomvidal/BlogDjango/master/screenshot_listagem.png)
+* [Detalhes do post](https://raw.githubusercontent.com/marcomvidal/BlogDjango/master/screenshot_post.png)
+* [Editor de posts](https://raw.githubusercontent.com/marcomvidal/BlogDjango/master/screenshot_editor.png)
